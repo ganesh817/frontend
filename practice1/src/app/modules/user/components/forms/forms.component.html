@@ -1,0 +1,71 @@
+
+
+<h1 style="color: blue; text-align: center;">User Registration Form</h1>
+    <div class="container mt-5" >
+        <form #userform="ngForm" (ngSubmit)="postData(userform)" >
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                       
+                        <input type="text" class="form-control" id="username" placeholder=" Enter your Name" [ngModel]="products?.title" ngModel name="username" required     
+                           #uname="ngModel" [class.is-invalid]="uname.invalid && uname.touched">
+                 
+                        <small class="text-danger" [class.d-none]="uname.valid || uname.untouched">user name required <sup>*</sup></small>
+                    </div>
+                    <div class="mb-3">
+                       
+                        <input type="email" class="form-control" id="email" placeholder="enter your emailId" ngModel name="emailId" required
+                        #email="ngModel" [class.is-invalid]="email.invalid && email.touched">
+                        <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is mandatory<sup>*</sup></small>
+                    </div>
+                    <div class="mb-3">
+                       
+                        <input  type="tel" class="form-control" id="phone" placeholder="enter your mobile number" ngModel name="mobile number" required 
+                        #mobile="ngModel" [class.is-invalid]="mobile.invalid && mobile.touched" >
+                        <small class="text-center" [class.d-none]="mobile.valid || mobile.untouched"> </small>
+                    </div>
+                    
+                    
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="mb-3" >
+                        <p >Gender</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="male" ngModel>
+                            <label class="form-check-label" for="male">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="female" ngModel>
+                            <label class="form-check-label" for="female">Female</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="other" value="other" ngModel >
+                            <label class="form-check-label" for="other">Other</label>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <p>Select Course</p>
+                        <select class="form-select" id="course" ngModel name="course">
+                            <option selected disabled>Select a course</option>
+                            <option *ngFor="let course of courses" value="{{course}}">{{course}}</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">
+                            Remember me
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary rounded-5 bg-gradient" >Submit</button>
+            </div>
+            
+        </form>
+       
+    </div>
+{{userform.value|json}}

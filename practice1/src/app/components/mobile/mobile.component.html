@@ -1,0 +1,41 @@
+<div class="container">
+    <h2>Mobile Management</h2>
+  
+    <!-- Form for adding or updating mobile -->
+    <form [formGroup]="mobileForm">
+      <div class="form-group">
+        <label for="id">Mobile ID:</label>
+        <input id="id" formControlName="id" class="form-control" type="number" placeholder="Enter Mobile ID">
+      </div>
+  
+      <div class="form-group">
+        <label for="brand">Brand:</label>
+        <input id="brand" formControlName="brand" class="form-control" type="text" placeholder="Enter Brand">
+      </div>
+  
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input id="price" formControlName="price" class="form-control" type="number" placeholder="Enter Price">
+      </div>
+  
+      <button type="button" class="btn btn-primary" (click)="addMobile()">Add Mobile</button>
+      <button type="button" class="btn btn-warning" (click)="updateMobile()">Update Mobile</button>
+    </form>
+  
+    <!-- Display success or error messages -->
+    <div *ngIf="successMessage" class="alert alert-success mt-3">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+  
+    <!-- List of mobiles -->
+    <div class="mt-4">
+      <h3>Mobiles List</h3>
+      <ul *ngIf="mobiles.length > 0" class="list-group mt-3">
+        <li *ngFor="let mobile of mobiles" class="list-group-item">
+          {{ mobile.id }} - {{ mobile.brand }} - ${{ mobile.price }}
+          <button class="btn btn-danger btn-sm float-right" (click)="deleteMobile(mobile.id)">Delete</button>
+        </li>
+      </ul>
+      <div *ngIf="mobiles.length === 0" class="mt-2">No mobiles available.</div>
+    </div>
+  </div>
+  

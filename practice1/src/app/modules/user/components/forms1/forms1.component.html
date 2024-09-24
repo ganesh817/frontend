@@ -1,0 +1,46 @@
+
+  <div class="registrationForm">
+    
+   <form [formGroup]="registrationForm" (ngSubmit)="postData()">
+    <h1 style="text-align: center;color:  brown ;">USER REGISTRATION FORM</h1>
+    
+    <div class="mb-3">
+      <input type="username" class="form-control" [class.is-invalid]="registrationForm.invalid&&registrationForm.touched"  placeholder="Enter your user name" required formControlName="username"
+      >
+        <!-- <small class="text-danger" *ngIf="userName.errors?.required"></small>  -->
+        <!-- <small for length *ngIf="userName.errors?.minLengthh "></small>       -->
+
+    </div>
+    <div class="mb-3">
+      <input type="password" class="form-control"  placeholder="Enter password" required formControlName="password">
+      
+      
+    </div>
+    <div class="mb-3">
+      <input type="cpassword" class="form-control"  placeholder="confirm your password" required  formControlName="cpassword">
+      
+    </div>
+    <div class="mb-3">
+  
+
+  <input type="city" class="form-control"  placeholder="enter your city" required formControlName="city">
+  
+<div class="mb-3">
+  <input type="state" class="form-control"  placeholder="enter your state" required formControlName="state">
+  
+</div>
+<div class="mb-3">
+  <input type="pincode" class="form-control"  placeholder="enter pincode" required formControlName="pincode">
+  
+</div>
+<div class="row-cols-3 ">
+  <button class="btn btn-primary " type="button" [disabled]="registrationForm.invalid">Register</button>
+  <button  class="btn btn-danger" type="button">Preview</button>
+  
+</div>
+
+</div>
+   </form>
+  </div>
+  {{registrationForm.value|json}}
+
